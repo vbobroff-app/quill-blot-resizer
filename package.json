@@ -1,0 +1,26 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This module resizes images, videos, tables in Quill-editor",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "tsc -m es6 --outDir lib-esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbobroff-app/quill-blot-resizer.git"
+  },
+  "keywords": [
+    "quill",
+    "resize",
+    "image",
+    "table",
+    "blot"
+  ],
+  "author": "Viktor Bobrov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vbobroff-app/quill-blot-resizer/issues"
+  },
+  "homepage": "https://github.com/vbobroff-app/quill-blot-resizer#readme"
+}
