@@ -1,12 +1,15 @@
 {
   "name": "quill-blot-resizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This module resizes images, videos, tables in Quill-editor",
-  "main": "dist/main.js",
+  "type": "module",
+  "main": "dist/main",
+  "types": "dist/main",
+  
   "scripts": {
-    "test": "tsc -m es6 --outDir lib-esm",
+    "test": "tsc -d  --declarationDir lib-dc --exclude src/types/**/* --outDir lib-esm",
     "lint": "eslint -c ./.eslintrc.js src/ --ext .js,.ts,.jsx,.tsx --fix",
-    "build": "npm run && tsc && webpack"
+    "build": "npm run && tsc && tsc-alias && webpack"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,6 @@
   },
   "homepage": "https://github.com/vbobroff-app/quill-blot-resizer#readme",
   "devDependencies": {
-    "@types/quill": "^1.3.7",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.44.0",
@@ -34,12 +36,12 @@
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "prettier": "^2.8.8",
     "ts-loader": "^9.4.4",
+    "tsc-alias": "^1.8.7",
+    "tsconfig-paths": "^4.2.0",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  },
-  "dependencies": {
-    "parchment": "^2.0.1"
   }
 }

@@ -1,10 +1,9 @@
-import Quill from 'quill';
 import ResizeModule from '../quill-blot-resizer';
 import AlignChromeHooks from '../hooks/align-chrome-hooks';
 import ChromeHooks from '../hooks/chrome-hooks';
 import DeleteChromeHooks from '../hooks/delete-chrome-hooks';
 import ResizeChromeHooks from '../hooks/resize-chrome-hooks';
-
+import Quill from '../types/quill';
 export default abstract class BlotChrome {
   chromes: ResizeModule;
   quill: Quill;

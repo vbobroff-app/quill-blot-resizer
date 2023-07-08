@@ -1,6 +1,5 @@
-import Quill from "quill";
 import ResizeModule from "../quill-blot-resizer";
-
+import Quill from '@typing/quill';
 
 export default abstract class ChromeHooks {
   chromes: ResizeModule;

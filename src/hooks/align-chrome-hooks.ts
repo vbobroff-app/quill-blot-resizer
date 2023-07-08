@@ -1,7 +1,7 @@
 import ResizeModule from '../quill-blot-resizer';
 import Aligner from '../aligner';
 import ChromeHooks from './chrome-hooks';
-import { Toolbar } from '../custom';
+import Toolbar from '../types/toolbar'
 
 export type QuillAlign = 'false' | 'right' | 'center' | 'justify';
 

@@ -1,13 +1,16 @@
-import Quill from "quill";
-import ChromeHooks from "./hooks/chrome-hooks";
 import { ChromeOptions, QuillChromesOptions } from "./chromes-options";
-import BlotChrome from "./chromes/blot-chrome";
 import DEFAULT_OPTIONS from "./defaults";
-import Image from "./custom";
-import ImageChrome from "./chromes/image-chrome";
-import IframeVideoChrome from "./chromes/iframe-video-chrome";
-import TableChrome from "./chromes/table-chrome";
 import { classOf } from "./utils";
+
+import ChromeHooks from "@hooks/chrome-hooks";
+
+import BlotChrome from "@chromes/blot-chrome";
+import ImageChrome from "@chromes/image-chrome";
+import IframeVideoChrome from "@chromes/iframe-video-chrome";
+import TableChrome from "@chromes/table-chrome";
+
+import Quill from '@typing/quill';
+import ImageBlot from '@typing/Image'
 
 const ImageAttributes = [
   'alt',
@@ -34,7 +37,7 @@ class Module {
 }
 const ondragstart = document.ondragstart;
 
-export default class ResizeModule extends Module {
+class ResizeModule extends Module {
   currentChrome: BlotChrome | null;
   currentOptions: ChromeOptions | undefined;
   chromes: BlotChrome[];
@@ -71,18 +74,16 @@ export default class ResizeModule extends Module {
       }
       
     });
-    this.chromes = optionsChromesKeys.map((key: string) => {
+    this.chromes = optionsChromesKeys.map((key: string) => { 
       const Chrome = chromeKeys.get(key) as any;
       return new Chrome(this);
     });  
     this.chromes.forEach(chrome => chrome.init());
   }
 
-  typeOf=classOf<Quill>;
-
   registerImage(quill: typeof Quill) {
 
-    const QuillImage: typeof Image = quill.import('formats/image');
+    const QuillImage: typeof ImageBlot = quill.import('formats/image');
 
     class StyledImage extends QuillImage {
       static formats(domNode: Element) {
@@ -202,3 +203,5 @@ export default class ResizeModule extends Module {
 }
 
 ResizeModule.DEFAULTS = DEFAULT_OPTIONS;
+
+export default ResizeModule;

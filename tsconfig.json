@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
     "target": "es2016",                     
-    "module": "es2020",     
+    "module": "esnext",   
     "lib": ["es2016", "es2017.object", "dom"],                
-    "declaration": true,                   
-    "sourceMap": true,                     
-    "outDir": "./dist",  
-    "types": [
-      "quill"
-    ],                    
+    "declaration": true,        
+    "sourceMap": false,
+    "emitDeclarationOnly": true,             
+    "outDir": "./dist",   
+    "rootDir": "src", 
     "removeComments": true,                
     "strict": true,                         
     "moduleResolution": "node",          
     "baseUrl": "./",                       
     "esModuleInterop": true,                
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@typing/*": ["src/types/*"],
+      "@chromes/*": ["src/chromes/*"],
+      "@hooks/*":["src/hooks/*"]
+    },
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
 }

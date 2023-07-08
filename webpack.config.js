@@ -1,17 +1,27 @@
-const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = {
-    entry: './src/quill-blot-resizer.ts',
+import ForkTsCheckerWebpackPlugin  from 'fork-ts-checker-webpack-plugin';
+import  TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default  {
+    entry: './src/main.ts',
+    experiments: {
+        outputModule: true,
+      },
     output: {
        path: path.resolve(__dirname, 'dist'),
        filename: 'main.js',
-       libraryTarget: "umd",
+       libraryTarget: "module",
     },
     devtool: 'source-map',
     mode: 'production',
     resolve: {
-        extensions: ['.ts'],
+        extensions: ['.ts', '.js'],
+        plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json'}),] 
     },
     module: {
         rules: [
